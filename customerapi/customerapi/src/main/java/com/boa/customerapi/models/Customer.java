@@ -13,7 +13,6 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
@@ -22,7 +21,6 @@ import lombok.experimental.SuperBuilder;
 @Table(name="Customer")
 @Inheritance(strategy = InheritanceType.JOINED)
 @SuperBuilder
-@EqualsAndHashCode(callSuper = false)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

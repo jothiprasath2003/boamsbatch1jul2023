@@ -1,0 +1,6 @@
+package com.boa.customerapi.services;
+
+@Service
+public class IndividualService {
+
+}

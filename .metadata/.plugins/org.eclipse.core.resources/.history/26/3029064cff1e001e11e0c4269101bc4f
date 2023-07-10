@@ -1,0 +1,25 @@
+package com.boa.customerapi.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.boa.customerapi.models.Individual;
+import com.boa.customerapi.repositories.IndividualRepo;
+
+@Service
+public class IndividualService {
+	
+	@Autowired
+	private IndividualRepo indRepo;
+	
+	//create
+	
+	public Individual addIndividual(Individual individual) {
+		if(individual !=null) 		
+  		 return this.indRepo.save(individual);
+		else
+			return null;
+	}
+	
+
+}
