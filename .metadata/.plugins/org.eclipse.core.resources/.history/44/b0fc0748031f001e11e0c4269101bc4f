@@ -1,0 +1,87 @@
+package com.boa.customerapi.services;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.AbstractQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.boa.customerapi.models.Address;
+import com.boa.customerapi.repositories.AddressRepo;
+
+@Service
+public class AddressService {
+	
+	@Autowired
+	private AddressRepo addressRepo;
+	@Autowired
+	private EntityManager entityManager;
+	
+	//create
+	
+	public Address addAddress(Address Address) {
+		if(Address !=null) 		
+  		 return this.AddressRepo.save(Address);
+		else
+			return null;
+	}
+	
+	//retrieve
+	public List<Address> getAllAddresss(){
+		return this.AddressRepo.findAll();
+	}
+	
+	public Address getAddressById(long customerId) {
+		return this.AddressRepo.findById(customerId).orElse(null);
+	}
+	
+	//non primary key
+	public List<Address> findAllByFirstName(String firstName){
+    	CriteriaBuilder cb= entityManager.getCriteriaBuilder();
+    	AbstractQuery<Address> cq=cb.createQuery(Address.class);
+    	
+    	Root<Address> AddressObject=cq.from(Address.class);
+    	cq.where(cb.equal(AddressObject.get("name").<String> get("firstName") ,firstName));
+    	
+    	CriteriaQuery<Address> selectResult=((CriteriaQuery<Address>)cq).select(AddressObject);
+    	TypedQuery<Address> tq=entityManager.createQuery(selectResult);
+    	return tq.getResultList();
+    }
+
+	public List<Address> getAddressByContactNo(long contactNo) {
+		return this.AddressRepo.findByContactNo(contactNo);
+	}
+	
+	
+	//update
+	public Address updateAddressEmail(long customerId, String email) {
+		 Address Address=getAddressById(customerId);
+		 if(Address!=null) {
+			Address.setEmail(email);
+			this.AddressRepo.save(Address);
+			return Address;
+		 }
+		 else
+			 return null;
+		 
+	}
+	
+	//delete
+	
+	public  boolean deleteAddressById(long customerId) {
+		
+		boolean status=false;
+		if(getAddressById(customerId)!=null) {
+			this.AddressRepo.deleteById(customerId);
+			status=true;
+		}
+		return status;
+	}
+	
+}
