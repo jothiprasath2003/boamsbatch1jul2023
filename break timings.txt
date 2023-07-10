@@ -1,0 +1,13 @@
+
+IST Time Zone
+10.00 am to 12.00 Session 1
+12.00 to 12.15 break
+12.15 to 1.30  Session 2
+1.30 to 2.15 Lunch
+2.15 to 4.00  session 3
+4.00 to 4.15 pm break 
+4.15 pm to 6.00 pm Session 4
+
+  
+
+
