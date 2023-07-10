@@ -1,0 +1,24 @@
+package com.boa.customerapi.models;
+
+import javax.annotation.Generated;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
+import lombok.Data;
+import lombok.experimental.SuperBuilder;
+
+@Entity
+@Table(name="Customer")
+@Inheritance(strategy = InheritanceType.JOINED)
+@Data
+public class Customer {
+	
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="Customer_Id")
+	private long customerId;
+
+}
