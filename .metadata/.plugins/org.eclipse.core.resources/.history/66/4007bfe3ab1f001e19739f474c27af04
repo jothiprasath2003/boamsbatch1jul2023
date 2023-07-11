@@ -1,0 +1,7 @@
+package com.boa.customerapi.queries;
+
+import graphql.kickstart.tools.GraphQLQueryResolver;
+
+public class CorporateGLQuery implements GraphQLQueryResolver{
+
+}

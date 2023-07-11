@@ -1,0 +1,10 @@
+package com.boa.customerapi.queries;
+
+import graphql.kickstart.tools.GraphQLQueryResolver;
+
+@Component
+public class IndividualGLQuery implements GraphQLQueryResolver {
+	
+	
+
+}
