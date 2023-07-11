@@ -49,26 +49,3 @@ getIndividualByFirstName(firstName: String): [Individual]
 }
 
 
-input IndividualInput{
-customerId: Long!
-email: String
-password: String
-contactNo: Long
-name: FullNameInput
-dob: Date
-gender: Gender
-}
-
-input FullNameInput{
-firstName: String
-middleName: String
-lastName: String
-
-}
-
-type Mutation{
-addIndividual(individualInput:IndividualInput!): Individual
-updateIndividual(customerId: Long!,email:String): Individual
-deleteIndividual(customerId: Long!): Boolean
-
-}

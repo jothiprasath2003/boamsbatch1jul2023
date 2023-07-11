@@ -1,5 +1,5 @@
 type Corporate implements Customer{
-customerId: Long
+customerId: Long!
 email: String
 password: String
 contactNo: Long
@@ -15,7 +15,7 @@ GOV,NGO,PUBLIC,PRIVATE
 extend type Query{
 
 getAllCorporates: [Corporate]
-getCorporateById(customerId: Long): Corporate
+getCorporateById(customerId: Long!): Corporate
 getCorporateByFirstName(firstName: String): [Corporate]
 
 

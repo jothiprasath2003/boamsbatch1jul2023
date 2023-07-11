@@ -64,11 +64,6 @@ firstName: String
 middleName: String
 lastName: String
 
-}
-
-type Mutation{
-addIndividual(individualInput:IndividualInput!): Individual
-updateIndividual(customerId: Long!,email:String): Individual
-deleteIndividual(customerId: Long!): Boolean
 
 }
+

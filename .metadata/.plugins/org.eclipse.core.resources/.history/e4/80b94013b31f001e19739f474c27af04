@@ -69,6 +69,6 @@ lastName: String
 type Mutation{
 addIndividual(individualInput:IndividualInput!): Individual
 updateIndividual(customerId: Long!,email:String): Individual
-deleteIndividual(customerId: Long!): Boolean
+deleteIndividual(customerId: Long!): boolean
 
 }
