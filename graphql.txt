@@ -19,6 +19,17 @@ mutation($individualInput:IndividualInput!){
   }
 }
 
+
+
+query($customerId:Long!){
+  getIndividualById(customerId:$customerId){
+    email
+  }
+}
+
+{
+  "customerId": 3
+}
 query{
   getAllIndividuals{
     email
