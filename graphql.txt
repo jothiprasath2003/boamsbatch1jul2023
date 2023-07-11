@@ -1,0 +1,22 @@
+mutation($individualInput:IndividualInput!){
+  addIndividual(individualInput:$individualInput){
+    customerId
+  }
+}
+{
+  "individualInput": {
+    "customerId": 0,
+    "email": "param@gmail.com",
+    "password": "Test@123",
+    "contactNo": 9952032862,
+    "name": {
+      "firstName": "Parameswari",
+      "middleName": "",
+      "lastName": "Bala"
+    },
+    "dob": "1970-12-02",
+    "gender": "FEMALE"
+  }
+}
+
+
