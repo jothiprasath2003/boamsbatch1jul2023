@@ -1,0 +1,36 @@
+package com.boa.customerapi.mutations;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.boa.customerapi.models.Individual;
+import com.boa.customerapi.services.IndividualService;
+import com.boa.customerapi.vos.IndividualInput;
+
+import graphql.kickstart.tools.GraphQLMutationResolver;
+
+@Component
+public class IndividualMutation implements GraphQLMutationResolver{
+	@Autowired
+	private IndividualService individualService;
+	
+	public Individual addIndividual(IndividualInput individualInput) {
+		
+		Individual individual=Individual.builder()
+				.customerId(individualInput.getCustomerId()).build();
+		
+		//this.individualService.addIndividual(null)
+		
+		
+	}
+	/*
+	 * public Individual updateIndividual(long customerId,String email) {
+	 * 
+	 * }
+	 * 
+	 * public boolean deleteIndividual(long customerId){
+	 * 
+	 * }
+	 */
+
+}

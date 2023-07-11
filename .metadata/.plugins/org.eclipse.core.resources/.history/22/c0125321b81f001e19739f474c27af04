@@ -1,0 +1,29 @@
+package com.boa.customerapi.models;
+
+
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Table;
+
+import com.boa.customerapi.models.Individual.IndividualBuilder;
+import com.boa.customerapi.models.Individual.IndividualBuilderImpl;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.SuperBuilder;
+
+@Entity
+@Table(name="Corporate")
+@Data
+@EqualsAndHashCode(callSuper=false)
+@SuperBuilder
+public class Corporate extends Customer{
+
+	@Enumerated(EnumType.STRING)
+	@Column(name="Company_Type")
+	private CompanyType companyType;
+}

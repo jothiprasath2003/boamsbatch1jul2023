@@ -1,0 +1,5 @@
+package com.boa.customerapi.mutations;
+
+public class IndividualMutation implements GraphqlMutationResolver{
+
+}

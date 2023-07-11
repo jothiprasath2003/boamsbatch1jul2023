@@ -11,13 +11,16 @@ import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Table(name="Individual")
 @Data
 @EqualsAndHashCode(callSuper=false)
+@SuperBuilder
 public class Individual extends Customer{
     @Enumerated(EnumType.STRING)
     @Column(name="Gender")

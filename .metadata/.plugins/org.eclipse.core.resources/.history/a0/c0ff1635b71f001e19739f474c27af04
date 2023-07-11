@@ -1,0 +1,11 @@
+package com.boa.customerapi.mutations;
+
+import com.boa.customerapi.services.IndividualService;
+
+import graphql.kickstart.tools.GraphQLMutationResolver;
+
+public class IndividualMutation implements GraphQLMutationResolver{
+	@Autowired
+	private IndividualService individualService;
+
+}
