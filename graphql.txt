@@ -37,5 +37,17 @@ query{
 }
 =======================================================================
 
+mutation($customerId:Long!, $email:String){
+  updateIndividual(customerId:$customerId, email:$email){
+    email,
+    customerId
+    
+  }
+}
 
+{
+  "customerId": 3,
+  "email": "eswaribala@gmail.com"
+}
+=========================================
 
