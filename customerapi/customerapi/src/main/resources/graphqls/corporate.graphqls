@@ -1,0 +1,32 @@
+schema{
+query: Query
+
+}
+
+scalar Long
+interface Customer{
+customerId: Long
+email: String
+password: String
+name: FullName
+contactNo: Long
+ 
+
+
+
+}
+
+
+type FullName{
+
+firstName: String
+middleName: String
+lastName: String
+
+}
+
+
+type Individual{
+
+
+}

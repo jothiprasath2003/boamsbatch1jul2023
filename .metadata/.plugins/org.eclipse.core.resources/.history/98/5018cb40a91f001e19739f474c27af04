@@ -1,0 +1,44 @@
+schema{
+query: Query
+
+}
+
+scalar Long
+scalar Date
+interface Customer{
+
+customerId: Long
+email: String
+password: String
+contactNo: Long
+name: FullName
+
+}
+
+type FullName{
+firstName: String
+middleName: String
+lastName: String
+
+
+}
+
+enum Gender{
+MALE,FEMALE,TRANSGENDER
+}
+
+type Individual implements Customer{
+
+customerId: Long
+email: String
+password: String
+contactNo: Long
+name: FullName
+dob: Date
+gender: Gender
+
+
+}
+
+
+
