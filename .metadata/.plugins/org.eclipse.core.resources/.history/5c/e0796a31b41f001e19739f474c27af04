@@ -1,0 +1,23 @@
+package com.boa.customerapi.vos;
+
+import java.time.LocalDate;
+
+
+import com.boa.customerapi.models.FullName;
+import com.boa.customerapi.models.Gender;
+@Data
+public class IndividualInput {
+	
+    private long customerId;
+    
+    private FullName name;
+   
+    private long contactNo;
+    
+    private String email;
+  
+    private String password;
+    
+    private LocalDate dob;
+    private Gender gender;
+}

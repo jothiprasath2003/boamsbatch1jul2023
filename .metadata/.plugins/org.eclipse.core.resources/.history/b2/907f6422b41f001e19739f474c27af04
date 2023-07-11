@@ -1,0 +1,22 @@
+package com.boa.customerapi.vos;
+
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import com.boa.customerapi.models.FullName;
+
+public class IndividualInput {
+	
+    private long customerId;
+    
+    private FullName name;
+   
+    private long contactNo;
+    
+    private String email;
+  
+    private String password;
+}
