@@ -19,4 +19,8 @@ mutation($individualInput:IndividualInput!){
   }
 }
 
-
+query{
+  getAllIndividuals{
+    email
+  }
+}
