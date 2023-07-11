@@ -1,0 +1,52 @@
+package com.boa.customerapi.mutations;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.boa.customerapi.models.FullName;
+import com.boa.customerapi.models.Corporate;
+import com.boa.customerapi.services.CorporateService;
+import com.boa.customerapi.vos.CorporateInput;
+
+import graphql.kickstart.tools.GraphQLMutationResolver;
+
+@Component
+public class CorporateMutation implements GraphQLMutationResolver{
+	@Autowired
+	private CorporateService corporateService;
+	
+	public Corporate addCorporate(CorporateInput CorporateInput) {
+		
+		Corporate Corporate=Corporate.builder()
+				.customerId(CorporateInput.getCustomerId())
+				.contactNo(CorporateInput.getContactNo())
+				
+				.name(FullName.builder()
+						.firstName(CorporateInput.getName().getFirstName())
+						.lastName(CorporateInput.getName().getLastName())
+						.middleName(CorporateInput.getName().getMiddleName()).build()
+						
+						)
+				.email(CorporateInput.getEmail())
+				.password(CorporateInput.getPassword())
+				.gender(CorporateInput.getGender())
+				.build();
+				
+		
+		return this.CorporateService.addCorporate(Corporate);
+		
+		
+	}
+	
+	  public Corporate updateCorporate(long customerId,String email) {
+	  
+		  return this.updateCorporate(customerId, email);
+	  }
+	  
+	  public boolean deleteCorporate(long customerId){
+	  
+		  return this.CorporateService.deleteCorporateById(customerId);
+	  }
+	 
+
+}

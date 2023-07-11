@@ -40,7 +40,7 @@ public class IndividualMutation implements GraphQLMutationResolver{
 	
 	  public Individual updateIndividual(long customerId,String email) {
 	  
-		  return this.updateIndividual(customerId, email);
+		  return this.individualService.updateIndividualEmail(customerId, email);
 	  }
 	  
 	  public boolean deleteIndividual(long customerId){
