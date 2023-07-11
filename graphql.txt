@@ -19,7 +19,7 @@ mutation($individualInput:IndividualInput!){
   }
 }
 
-
+==============================================================
 
 query($customerId:Long!){
   getIndividualById(customerId:$customerId){
@@ -35,3 +35,7 @@ query{
     email
   }
 }
+=======================================================================
+
+
+
