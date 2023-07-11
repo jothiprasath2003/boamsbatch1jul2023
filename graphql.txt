@@ -50,4 +50,11 @@ mutation($customerId:Long!, $email:String){
   "email": "eswaribala@gmail.com"
 }
 =========================================
+mutation($customerId:Long!){
+  deleteIndividual(customerId:$customerId)
+}
 
+{
+  "customerId": 4
+  
+}
