@@ -11,12 +11,3 @@ companyType: CompanyType
 enum CompanyType{
 GOV,NGO,PUBLIC,PRIVATE
 }
-
-extend type Query{
-
-getAllCorporates: [Corporate]
-getCorporateById(customerId: Long): Corporate
-getCorporateByFirstName(firstName: String): [Corporate]
-
-
-}
