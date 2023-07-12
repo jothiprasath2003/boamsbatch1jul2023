@@ -27,5 +27,5 @@ resilience4j:
         slow-call-rate-threshold: 60 
         failure-rate-threshold: 60
 
-serviceUrl: http://localhost:8765/api/customers/individuals/v1.0/
+serviceUrl: http://localhost:8765/api/customer/individuals/v1.0/
 alternativeServiceUrl: http://localhost:7074/individuals/v1.0/
