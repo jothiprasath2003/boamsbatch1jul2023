@@ -27,7 +27,7 @@ public class ResilienceService {
 	}
 	
 	
-	public String getFallbackResponse() {
+	public String getFallbackResponse(Exception e)  {
 		return restTemplate.getForObject(alternativeUrl, String.class);
 	}
 	
