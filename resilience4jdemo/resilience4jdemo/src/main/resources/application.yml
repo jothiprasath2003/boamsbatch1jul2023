@@ -13,7 +13,7 @@ resilience4j:
         retry-exceptions:
          - org.springframework.web.client.RestClientException
         ignore-exceptions:
-         - com.boa.resilience4j.exceptions.IgnoreException
+         - com.boa.resilience4jdemo.exceptions.IgnoreException
   circuitbreaker:
     circuit-breaker-aspect-order: 1
     instances:
@@ -29,3 +29,5 @@ resilience4j:
 
 serviceUrl: http://localhost:8765/api/customer/individuals/v1.0/
 alternativeServiceUrl: http://localhost:7074/individuals/v1.0/
+serviceUrl1: http://localhost:8765/api/account/accounts/v1.0/
+alternativeServiceUrl1: http://localhost:7076/accounts/v1.0/
