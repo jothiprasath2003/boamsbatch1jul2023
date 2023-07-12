@@ -58,7 +58,7 @@ public class IndividualController {
 	@CrossOrigin("*")
 	public List<Individual> getAllIndividuals(){
 	
-		log.info("Message received from github",message);
+		log.info("Message received from github"+message);
 		
 	   return this.individualService.getAllIndividuals();
 		
