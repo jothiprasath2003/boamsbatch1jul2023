@@ -3,6 +3,8 @@ package com.boa.customerapiexternal.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,14 +22,19 @@ import com.boa.customerapiexternal.models.Individual;
 import com.boa.customerapiexternal.services.IndividualService;
 import com.boa.customerapiexternal.vos.ResponseWrapper;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
 @RequestMapping("/individuals")
+@RefreshScope
+@Slf4j
 public class IndividualController {
 	
 	@Autowired
 	private IndividualService individualService;
 	
-	
+	@Value("${message}")
+    private String message;
 	//add the individual
 	
 	@SuppressWarnings("rawtypes")
@@ -51,6 +58,8 @@ public class IndividualController {
 	@CrossOrigin("*")
 	public List<Individual> getAllIndividuals(){
 	
+		log.info("Message received from github",message);
+		
 	   return this.individualService.getAllIndividuals();
 		
 	}
