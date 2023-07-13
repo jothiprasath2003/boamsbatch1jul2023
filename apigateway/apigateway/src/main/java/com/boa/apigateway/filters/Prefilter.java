@@ -39,10 +39,10 @@ public class Prefilter extends ZuulFilter{
     @Autowired
     private RestTemplate restTemplate;
 
-    @Value("${authUrl}")
-    private String authUrl;
     @Value("${apiUrl}")
     private String apiUrl;
+    @Value("${api}")
+    private String api;
 
     private ObjectMapper objectMapper;
 
@@ -64,7 +64,7 @@ public class Prefilter extends ZuulFilter{
         System.out.println( servletRequest.getRemoteAddr());
         System.out.println("PreFilter: " + String.format("%s request to %s",  servletRequest.getMethod(), servletRequest.getRequestURL().toString()));
 
-        //http://localhost:8765/api/customers/individuals/v1.0/?userName=eswari&userPwd=test@123
+        //http://localhost:8765/api/customer/individuals/v1.0/?userName=eswari&userPwd=Test@123
         Map<String, List<String>> params=ctx.getRequestQueryParams();
 
 
@@ -97,7 +97,7 @@ public class Prefilter extends ZuulFilter{
 	     */
             //step 3
             ResponseEntity<?> authResponse = restTemplate.
-                    postForEntity(authUrl + "signin", request, String.class);
+                    postForEntity(apiUrl + "signin", request, String.class);
             System.out.println(authResponse.getBody().toString());
 
             token=parseString(authResponse.getBody().toString());
@@ -113,7 +113,7 @@ public class Prefilter extends ZuulFilter{
             request = new HttpEntity<String>(null,headers);
 
             ResponseEntity<String> responseEntityStr = restTemplate.
-                    exchange(authUrl+apiUrl, HttpMethod.GET, request,
+                    exchange(apiUrl+api, HttpMethod.GET, request,
                             String.class);
             System.out.println(responseEntityStr.getBody());
             System.out.println("token : {} Verification Passed"+token);
