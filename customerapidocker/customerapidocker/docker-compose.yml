@@ -12,8 +12,8 @@ services:
         interval: 30s
         timeout: 10s
         retries: 5
-    networks:
-      - boanetwork
+    #networks:
+      #- boanetwork
   customer-app:
     image: customerapp
     build:
@@ -32,8 +32,8 @@ services:
         - 7074:7074
     volumes:
       - /data/compose-app
-    networks:
-      - boanetwork   
+    #networks:
+      #- boanetwork   
     
 
 ### put all the networks here
