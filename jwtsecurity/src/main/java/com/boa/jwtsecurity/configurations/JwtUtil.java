@@ -32,8 +32,8 @@ import io.jsonwebtoken.UnsupportedJwtException;
 
 public class JwtUtil {
 
-	@Value("${jwt.secret}")
-	private String jwtSecret;
+	//@Value("${jwt.secret}")
+	//private String jwtSecret;
 	private final VaultConfiguration vaultConfiguration;
 	//vault initialization
 	public JwtUtil(VaultConfiguration configuration) {
