@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="F:\boamsbatch1jul2023\customerapidocker\customerapidocker"/>
 			<item value="F:\boamsbatch1jul2023\resilience4jdemo\resilience4jdemo"/>
 			<item value="F:\boamsbatch1jul2023\apigateway\apigateway"/>
 			<item value="F:\boamsbatch1jul2023\configserver\configserver"/>
