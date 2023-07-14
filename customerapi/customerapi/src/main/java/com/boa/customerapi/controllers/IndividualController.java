@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.boa.customerapi.models.Individual;
+import com.boa.customerapi.services.CustomerPublisher;
 import com.boa.customerapi.services.IndividualService;
 import com.boa.customerapi.vos.ResponseWrapper;
 
@@ -26,8 +27,8 @@ public class IndividualController {
 	
 	@Autowired
 	private IndividualService individualService;
-	
-	
+	@Autowired
+	private CustomerPublisher customerPublisher;
 	//add the individual
 	
 	@SuppressWarnings("rawtypes")
@@ -131,6 +132,26 @@ public class IndividualController {
 		else
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseWrapper("Customer "
 					+ "not deleted"));
+		
+	}
+	
+	
+	@SuppressWarnings("rawtypes")
+	@GetMapping({"/v1.0/{customerId}"})
+	@CrossOrigin("*")
+	public ResponseEntity<ResponseWrapper>getIndividualByIdandPublish(@PathVariable("customerId") long customerId){
+	
+		Individual object=this.individualService.getIndividualById(customerId);
+	
+		
+		if(	this.customerPublisher.publishCustomerData(object)) {
+			return ResponseEntity.status(HttpStatus.ACCEPTED)
+					.body(new ResponseWrapper("Message Published"));
+			
+		}
+		else
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseWrapper("Message "
+					+ "not published"));
 		
 	}
 }
