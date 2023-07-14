@@ -1,5 +1,6 @@
 package com.boa.customerapi.controllers;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,18 +18,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.boa.customerapi.models.Individual;
-import com.boa.customerapi.services.CustomerPublisher;
+//import com.boa.customerapi.services.CustomerPublisher;
 import com.boa.customerapi.services.IndividualService;
 import com.boa.customerapi.vos.ResponseWrapper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @RestController
 @RequestMapping("/individuals")
 public class IndividualController {
-	
+
+    private static final Logger LOGGER = LogManager.getLogger(IndividualController.class);
+
 	@Autowired
 	private IndividualService individualService;
-	@Autowired
-	private CustomerPublisher customerPublisher;
+	//@Autowired
+	//private CustomerPublisher customerPublisher;
 	//add the individual
 	
 	@SuppressWarnings("rawtypes")
@@ -51,8 +56,13 @@ public class IndividualController {
 	@GetMapping({"/v1.0/"})
 	@CrossOrigin("*")
 	public List<Individual> getAllIndividuals(){
-	
-	   return this.individualService.getAllIndividuals();
+		LOGGER.info(LocalDate.now()+"Fetching Data");
+		List<Individual> individuals=this.individualService.getAllIndividuals();
+    	for(Individual individual : individuals)
+    		LOGGER.info(individual);
+        LOGGER.debug("Debug level log message");
+        LOGGER.error("Error level log message");
+	   return individuals;
 		
 	}
 	
@@ -136,22 +146,25 @@ public class IndividualController {
 	}
 	
 	
-	@SuppressWarnings("rawtypes")
-	@GetMapping({"/v1.0/publish/{customerId}"})
-	@CrossOrigin("*")
-	public ResponseEntity<ResponseWrapper>getIndividualByIdandPublish(@PathVariable("customerId") long customerId){
-	
-		Individual object=this.individualService.getIndividualById(customerId);
-	
-		
-		if(	this.customerPublisher.publishCustomerData(object)) {
-			return ResponseEntity.status(HttpStatus.ACCEPTED)
-					.body(new ResponseWrapper("Message Published"));
-			
-		}
-		else
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseWrapper("Message "
-					+ "not published"));
-		
-	}
+	/*
+	 * @SuppressWarnings("rawtypes")
+	 * 
+	 * @GetMapping({"/v1.0/publish/{customerId}"})
+	 * 
+	 * @CrossOrigin("*") public
+	 * ResponseEntity<ResponseWrapper>getIndividualByIdandPublish(@PathVariable(
+	 * "customerId") long customerId){
+	 * 
+	 * Individual object=this.individualService.getIndividualById(customerId);
+	 * 
+	 * 
+	 * if( this.customerPublisher.publishCustomerData(object)) { return
+	 * ResponseEntity.status(HttpStatus.ACCEPTED) .body(new
+	 * ResponseWrapper("Message Published"));
+	 * 
+	 * } else return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new
+	 * ResponseWrapper("Message " + "not published"));
+	 * 
+	 * }
+	 */
 }
