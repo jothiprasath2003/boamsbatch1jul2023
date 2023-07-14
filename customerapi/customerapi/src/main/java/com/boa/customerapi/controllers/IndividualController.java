@@ -137,7 +137,7 @@ public class IndividualController {
 	
 	
 	@SuppressWarnings("rawtypes")
-	@GetMapping({"/v1.0/{customerId}"})
+	@GetMapping({"/v1.0/publish/{customerId}"})
 	@CrossOrigin("*")
 	public ResponseEntity<ResponseWrapper>getIndividualByIdandPublish(@PathVariable("customerId") long customerId){
 	
