@@ -1,26 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonProperty"/>
-    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonFormat"/>
-    <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
-    <fullyQualifiedTypeName name="javax.persistence.Id"/>
-    <fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
-    <fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
-    <fullyQualifiedTypeName name="javax.persistence.Column"/>
-    <fullyQualifiedTypeName name="javax.persistence.ManyToMany"/>
-    <fullyQualifiedTypeName name="lombok.Data"/>
-    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
-    <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
-    <fullyQualifiedTypeName name="com.boa.jwtsecurity.configurations.JwtUtil"/>
-    <fullyQualifiedTypeName name="com.boa.jwtsecurity.services.UserAuthService"/>
-    <fullyQualifiedTypeName name="com.boa.jwtsecurity.services.UserService"/>
-    <fullyQualifiedTypeName name="org.springframework.security.authentication.AuthenticationManager"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
-    <fullyQualifiedTypeName name="com.boa.jwtsecurity.vos.JwtResponse"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
-    <fullyQualifiedTypeName name="com.boa.jwtsecurity.vos.JwtRequest"/>
-    <fullyQualifiedTypeName name="org.springframework.security.authentication.UsernamePasswordAuthenticationToken"/>
-    <fullyQualifiedTypeName name="org.springframework.security.authentication.DisabledException"/>
     <fullyQualifiedTypeName name="com.boa.jwtsecurity.exceptions.DisabledUserException"/>
     <fullyQualifiedTypeName name="org.springframework.security.authentication.BadCredentialsException"/>
     <fullyQualifiedTypeName name="com.boa.jwtsecurity.exceptions.InvalidUserCredentialsException"/>
@@ -36,7 +15,6 @@
     <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
     <fullyQualifiedTypeName name="com.netflix.zuul.ZuulFilter"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="org.springframework.web.client.RestTemplate"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Value"/>
     <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.ObjectMapper"/>
@@ -60,4 +38,26 @@
     <fullyQualifiedTypeName name="net.minidev.json.JSONObject"/>
     <fullyQualifiedTypeName name="com.github.wnameless.json.flattener.JsonFlattener"/>
     <fullyQualifiedTypeName name="com.github.wnameless.json.unflattener.JsonUnflattener"/>
+    <fullyQualifiedTypeName name="org.springframework.cloud.stream.annotation.Output"/>
+    <fullyQualifiedTypeName name="com.boa.customerapi.models.Customer"/>
+    <fullyQualifiedTypeName name="com.boa.customerapi.facades.CustomerFacade"/>
+    <fullyQualifiedTypeName name="org.springframework.messaging.support.MessageBuilder"/>
+    <fullyQualifiedTypeName name="org.springframework.messaging.MessageHeaders"/>
+    <fullyQualifiedTypeName name="org.springframework.util.MimeTypeUtils"/>
+    <fullyQualifiedTypeName name="com.boa.customerapi.services.CustomerPublisher"/>
+    <fullyQualifiedTypeName name="org.springframework.cloud.stream.annotation.Input"/>
+    <fullyQualifiedTypeName name="org.springframework.messaging.MessageChannel"/>
+    <fullyQualifiedTypeName name="org.springframework.cloud.stream.annotation.EnableBinding"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="org.springframework.cloud.stream.annotation.StreamListener"/>
+    <fullyQualifiedTypeName name="com.boa.accountapi.facades.CustomerFacade"/>
+    <fullyQualifiedTypeName name="org.springframework.messaging.handler.annotation.Payload"/>
+    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
+    <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
+    <fullyQualifiedTypeName name="org.springframework.data.mongodb.core.mapping.Document"/>
+    <fullyQualifiedTypeName name="org.bson.codecs.pojo.annotations.BsonId"/>
+    <fullyQualifiedTypeName name="com.boa.accountapi.vos.Customer"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.boa.accountapi.repositories.CustomerRepo"/>
+    <fullyQualifiedTypeName name="lombok.extern.slf4j.Slf4j"/>
 </qualifiedTypeNameHistroy>
