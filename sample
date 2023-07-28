@@ -1,0 +1,52 @@
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class JsonToRamlConverter {
+
+    public static void main(String[] args) {
+        String dt = "";
+
+        String raml = convertJsonToRaml(dt);
+        System.out.println(raml);
+    }
+
+    public static String convertJsonToRaml(String json) {
+        StringBuilder ramlBuilder = new StringBuilder("#%RAML 1.0\n");
+        ramlBuilder.append("title: My API\n");
+        ramlBuilder.append("baseUri: https://api.example.com\n\n");
+
+        try {
+            JSONObject jsonObject = new JSONObject(json);
+
+            ramlBuilder.append("types:\n");
+            ramlBuilder.append("  UserData:\n");
+            ramlBuilder.append("    type: object\n");
+            ramlBuilder.append("    properties:\n");
+
+            // Iterate through JSON object keys and add properties to RAML
+            for (String key : jsonObject.keySet()) {
+                Object value = jsonObject.get(key);
+                ramlBuilder.append("      ").append(key).append(": ").append(getRamlType(value)).append("\n");
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return ramlBuilder.toString();
+    }
+
+    private static String getRamlType(Object value) {
+        if (value instanceof String) {
+            return "string";
+        } else if (value instanceof Integer || value instanceof Long) {
+            return "number";
+        } else if (value instanceof Boolean) {
+            return "boolean";
+        } else if (value instanceof JSONObject) {
+            return "UserData"; // Reference to the type defined earlier
+        } else {
+            return "string"; // Default to string for unknown types
+        }
+    }
+}
